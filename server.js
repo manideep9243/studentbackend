@@ -7,9 +7,9 @@ const { MongoClient } = require('mongodb');
 const app = express();
 const PORT = 3000; 
 
-const dbUri = 'mongodb+srv://22wj1a6673:avinash00725@cluster0.vecxz.mongodb.net/Results?retryWrites=true&w=majority&appName=Cluster0';
+const dbUri = 'mongodb+srv://gniresults:gni1234@cluster0.iqgr5ty.mongodb.net/Results?retryWrites=true&w=majority&appName=Cluster0';
 const dbName = 'Results'; 
-const collectionName = 'GNIResults'; 
+const collectionName = 'StudentResults'; 
 
 // Middleware
 app.use(cors()); // Allow cross-origin requests
