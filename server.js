@@ -141,8 +141,10 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 // Rate limiter
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 200,
+  max: 1000,
   message: 'Too many requests from this IP, please try again later.',
+  standardHeaders: true, // Return rate limit info in headers
+  legacyHeaders: false,
 });
 app.use(limiter);
 
