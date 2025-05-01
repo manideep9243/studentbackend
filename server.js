@@ -124,10 +124,18 @@ app.use(cors({
   origin: 'https://gnitcresults.netlify.app',
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
+  credentials: false, // Set to true if cookies or auth headers are needed
 }));
+app.options('*', cors()); // Explicitly handle preflight requests for all routes
 app.use(express.json());
 
-// Serve frontend files (optional, remove if frontend is hosted separately)
+// Log requests for debugging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
+// Serve frontend files (optional, remove if frontend is hosted on Netlify)
 app.use(express.static(path.join(__dirname, 'frontend')));
 
 // Rate limiter
