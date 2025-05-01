@@ -69,7 +69,7 @@ app.post('/getResults', async (req, res) => {
     const db = dbClient.db(dbName);
     const collection = db.collection(collectionName);
 
-    const result = await collection.findOne({ rollNumber });
+    const result = await collection.find({ rollNumber });
 
     if (!result) {
       return res.status(404).send('Result not found for the given Roll Number');
