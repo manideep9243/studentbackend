@@ -187,7 +187,7 @@ app.post('/getResults', async (req, res) => {
 
 // Fallback route
 app.get('*', (req, res) => {
-  res.status(404).send('Route not found');
+  res.status(400).send('Route not found');
 });
 
 // Start server
